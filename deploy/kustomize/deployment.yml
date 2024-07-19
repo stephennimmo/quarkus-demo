@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-demo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      deployment: quarkus-demo
+  template:
+    metadata:
+      labels:
+        deployment: quarkus-demo
+    spec:
+      containers:
+        - name: quarkus-demo-container
+          image: quay.io/stephennimmo/quarkus-demo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

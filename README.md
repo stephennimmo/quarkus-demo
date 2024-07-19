@@ -1,5 +1,21 @@
 # quarkus-demo
 
+```shell
+./mvnw clean package
+podman build -f src/main/docker/Dockerfile.jvm -t quay.io/stephennimmo/quarkus-demo:latest .
+podman push quay.io/stephennimmo/quarkus-demo:latest
+```
+
+Deploy to OpenShift 
+```shell
+oc login ...
+oc project <project>
+oc apply -k deploy/kustomize
+```
+
+
+# quarkus
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
